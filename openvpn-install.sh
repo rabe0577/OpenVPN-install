@@ -456,6 +456,9 @@ ifconfig-pool-persist ipp.txt" >> /etc/openvpn/server.conf
 		;;
 	esac
 echo 'push "redirect-gateway def1 bypass-dhcp" '>> /etc/openvpn/server.conf
+echo 'push "route 10.0.0.0 255.0.0.0 net_gateway"
+push "route 172.16.0.0 255.240.0.0 net_gateway"
+push "route 192.168.0.0 255.255.0.0 net_gateway" '>> /etc/openvpn/server.conf
 echo "crl-verify crl.pem
 ca ca.crt
 cert server.crt
